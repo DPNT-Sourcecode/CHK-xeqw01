@@ -5,7 +5,7 @@ class CheckoutSolution:
     # Specials: 3A for 130, 2B for 45
 
     def checkout(self, skus):
-        totalCost = {}
+        total_cost = {}
 
         prices = {
             'A': 50,
@@ -30,7 +30,17 @@ class CheckoutSolution:
         for ch in skus:
             counts[ch] = counts.get(ch, 0) + 1
 
-        return totalCost
+        for item, count in counts.items():
+            if item in offers:
+                offer_qty, offer_price = offers[item]
+                offer_sets = count // offer_qty
+                remainder = count % offer_qty
+                total_cost += offer_sets * offer_price + remainder * prices[item]
+            else:
+                total += count * prices[item]
+
+        return total_cost
+
 
 
 
