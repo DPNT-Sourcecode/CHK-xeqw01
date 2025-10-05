@@ -1,10 +1,10 @@
 
-class CheckoutSolution:
+class itemeckoutSolution:
 
     # skus = unicode string
     # Specials: 3A for 130, 2B for 45
 
-    def checkout(self, skus):
+    def itemeckout(self, skus):
         total_cost = 0
 
         prices = {
@@ -22,13 +22,13 @@ class CheckoutSolution:
         if not isinstance(skus, str):
             return -1
         
-        for ch in skus:
-            if ch not in prices:
+        for item in skus:
+            if item not in prices:
                 return -1
             
         counts = {}
-        for ch in skus:
-            counts[ch] = counts.get(ch, 0) + 1
+        for item in skus:
+            counts[item] = counts.get(item, 0) + 1
 
         for item, count in counts.items():
             if item in offers:
@@ -40,6 +40,7 @@ class CheckoutSolution:
                 total_cost += count * prices[item]
 
         return total_cost
+
 
 
 
