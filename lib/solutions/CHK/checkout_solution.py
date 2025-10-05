@@ -40,9 +40,3 @@ class itemeckoutSolution:
                 total_cost += count * prices[item]
 
         return total_cost
-
-
-
-
-
-
